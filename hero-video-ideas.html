@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Video Ideas — Ahmed Adly Portfolio</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #080810;
+    color: #fff;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    padding: 48px 24px;
+  }
+  h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ff3cac;
+    margin-bottom: 8px;
+  }
+  .sub {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.9rem;
+    margin-bottom: 48px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .card:hover { border-color: rgba(255,60,172,0.4); transform: translateY(-2px); }
+  .card.selected { border-color: #ff3cac; background: rgba(255,60,172,0.06); }
+  .preview {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Idea A — Reel Scrub */
+  .preview-a {
+    background: #0a0a14;
+  }
+  .reel-strip {
+    display: flex;
+    gap: 6px;
+    position: absolute;
+    left: -20px;
+    opacity: 0.7;
+  }
+  .reel-frame {
+    width: 80px;
+    height: 140px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .reel-frame:nth-child(1) { background: linear-gradient(160deg,#1a0a2e,#0d0d1a); }
+  .reel-frame:nth-child(2) { background: linear-gradient(160deg,#2a0a1e,#120a2a); }
+  .reel-frame:nth-child(3) { background: linear-gradient(160deg,#0a1a2e,#0a0a20); }
+  .reel-frame:nth-child(4) { background: linear-gradient(160deg,#1a2a0e,#0a0d1a); }
+  .reel-frame:nth-child(5) { background: linear-gradient(160deg,#2a1a0e,#150a1a); }
+  .reel-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, #080810 0%, transparent 20%, transparent 80%, #080810 100%);
+    pointer-events: none;
+  }
+  .scrub-bar {
+    position: absolute;
+    bottom: 20px;
+    left: 20px; right: 20px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+  }
+  .scrub-fill {
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff3cac, #7b2fff);
+    border-radius: 2px;
+  }
+  .scrub-thumb {
+    width: 12px; height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: -4.5px; left: calc(40% - 6px);
+    box-shadow: 0 0 8px rgba(255,60,172,0.8);
+  }
+  .name-overlay {
+    position: absolute;
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 0 40px rgba(255,60,172,0.4);
+    z-index: 2;
+  }
+
+  /* Idea B — Ambient Loop */
+  .preview-b {
+    background: radial-gradient(ellipse at 30% 50%, rgba(123,47,255,0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(255,60,172,0.2) 0%, transparent 60%),
+                #080810;
+  }
+  .float-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: blob-drift 6s ease-in-out infinite alternate;
+  }
+  @keyframes blob-drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(20px, -15px) scale(1.1); }
+  }
+  .text-center-b {
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+  }
+  .text-center-b .big {
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.5) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-center-b .role {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-top: 6px;
+  }
+
+  /* Idea C — Work Preview on Hover */
+  .preview-c {
+    background: #080810;
+  }
+  .mock-portfolio {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 16px;
+  }
+  .mock-proj {
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .mock-proj:nth-child(1) { background: linear-gradient(135deg,#12082a,#0a0818); }
+  .mock-proj:nth-child(2) { background: linear-gradient(135deg,#0a1820,#080a14); }
+  .mock-proj:nth-child(3) { background: linear-gradient(135deg,#1a0818,#0a0810); }
+  .mock-proj:nth-child(4) { background: linear-gradient(135deg,#0a180a,#080a10); }
+  .mock-proj .proj-glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .mock-proj:nth-child(1) .proj-glow { background: rgba(123,47,255,0.15); }
+  .mock-proj:nth-child(2) .proj-glow { background: rgba(255,60,172,0.1); }
+  .mock-proj:hover .proj-glow { opacity: 1; }
+  .cursor-hint {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+  }
+
+  /* Card body */
+  .card-body {
+    padding: 20px 22px 22px;
+  }
+  .card-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ff3cac;
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .card-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+  }
+  .rec-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(255,60,172,0.15);
+    color: #ff3cac;
+    border: 1px solid rgba(255,60,172,0.3);
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .difficulty {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 12px;
+  }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+  }
+  .dot.on { background: #ff3cac; }
+  .dot.off { background: rgba(255,255,255,0.1); }
+  .diff-label {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+    margin-left: 4px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Interactive Hero — Video Ideas</h1>
+<p class="sub">Three directions for Ahmed Adly's portfolio hero. Click a card to select.</p>
+
+<div class="cards">
+
+  <!-- IDEA A -->
+  <div class="card" onclick="this.classList.toggle('selected')">
+    <div class="preview preview-a">
+      <div class="reel-strip">
+        <div class="reel-frame"></div>
+        <div class="reel-frame"></div>
+        <div class="reel-frame"></div>
+        <div class="reel-frame"></div>
+        <div class="reel-frame"></div>
+        <div class="reel-frame"></div>
+      </div>
+      <div class="reel-overlay"></div>
+      <div class="name-overlay">Ahmed</div>
+      <div class="scrub-bar">
+        <div class="scrub-fill"></div>
+        <div class="scrub-thumb"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-label">Idea A <span class="rec-badge">Recommended</span></div>
+      <div class="card-title">Showreel Scrubber</div>
+      <div class="card-desc">
+        A looping work showreel plays behind the name. User can scrub a timeline bar to jump between project highlights — each position shows a different case study. Hover pauses the reel, scrub resumes it.
+      </div>
+      <div class="tags">
+        <span class="tag">Video loop</span>
+        <span class="tag">Timeline scrub</span>
+        <span class="tag">Case study previews</span>
+      </div>
+      <div class="difficulty">
+        <div class="dot on"></div><div class="dot on"></div><div class="dot off"></div>
+        <span class="diff-label">Medium effort</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDEA B -->
+  <div class="card" onclick="this.classList.toggle('selected')">
+    <div class="preview preview-b">
+      <div class="float-blob" style="width:150px;height:150px;background:rgba(123,47,255,0.35);top:-30px;left:-20px;"></div>
+      <div class="float-blob" style="width:120px;height:120px;background:rgba(255,60,172,0.25);bottom:-20px;right:-10px;animation-delay:-3s;"></div>
+      <div class="text-center-b">
+        <div class="big">Ahmed<br>Adly</div>
+        <div class="role">Product Designer · AI Builder</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-label">Idea B</div>
+      <div class="card-title">Ambient Video Aura</div>
+      <div class="card-desc">
+        Slow, looping abstract video (liquid gradients / particles) plays fullscreen behind the text — muted, low opacity. Reacts subtly to mouse position. Purely atmospheric, keeps the text as the star.
+      </div>
+      <div class="tags">
+        <span class="tag">Ambient loop</span>
+        <span class="tag">Mouse parallax</span>
+        <span class="tag">Muted video</span>
+      </div>
+      <div class="difficulty">
+        <div class="dot on"></div><div class="dot off"></div><div class="dot off"></div>
+        <span class="diff-label">Low effort</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDEA C -->
+  <div class="card" onclick="this.classList.toggle('selected')">
+    <div class="preview preview-c">
+      <div class="mock-portfolio">
+        <div class="mock-proj"><div class="proj-glow"></div>Talinah</div>
+        <div class="mock-proj"><div class="proj-glow"></div>ES App</div>
+        <div class="mock-proj"><div class="proj-glow"></div>Design Sys</div>
+        <div class="mock-proj"><div class="proj-glow"></div>AI Tool</div>
+      </div>
+      <div class="cursor-hint">hover to preview</div>
+    </div>
+    <div class="card-body">
+      <div class="card-label">Idea C</div>
+      <div class="card-title">Project Mosaic Preview</div>
+      <div class="card-desc">
+        Name + title front and center. Behind or beside it: a grid of project thumbnails. Hovering a thumbnail plays a short video clip of that project in place — like an interactive case study teaser.
+      </div>
+      <div class="tags">
+        <span class="tag">Project grid</span>
+        <span class="tag">Hover video clips</span>
+        <span class="tag">Inline previews</span>
+      </div>
+      <div class="difficulty">
+        <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+        <span class="diff-label">High effort</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p style="text-align:center;color:rgba(255,255,255,0.2);font-size:0.75rem;margin-top:48px;letter-spacing:0.1em;">
+  Open this file in your browser · Click cards to mark your preference · Then tell Claude which one you like
+</p>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "role": "Product Designer",
+    "company": "Extreme Solution",
+    "yearRange": "Sep 2018 - Present",
+    "description": "Collaborated directly with leadership to prototype and deliver UI/UX experiences through a lean, iterative design process."
+  },
+  {
+    "id": "2",
+    "role": "UX Director",
+    "company": "DotMSR (Digital Publishing)",
+    "yearRange": "Jan 2017 - Jan 2018",
+    "description": "Led the UX team in making strategic design decisions and organizing projects related to core functions and new features."
+  },
+  {
+    "id": "3",
+    "role": "UX Designer",
+    "company": "DotMSR (Digital Publishing)",
+    "yearRange": "Dec 2015 - Jan 2017",
+    "description": "Solved complex design problems by removing constraints and applying broad design thinking."
+  },
+  {
+    "id": "4",
+    "role": "UI/UX Designer",
+    "company": "Zmaxmedia Design Studio",
+    "yearRange": "Aug 2007 - Dec 2010",
+    "description": "Produced powerful and easy-to-use user interfaces and attractive user experiences."
+  }
+]

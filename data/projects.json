@@ -1,0 +1,250 @@
+[
+  {
+    "id": "1",
+    "slug": "alkoupon",
+    "title": "Alkoupon",
+    "originalTitle": "Alkoupon",
+    "type": "Web / AI",
+    "tags": ["Design", "AI", "Web"],
+    "year": "2025",
+    "heroImage": "/work/alkoupon-hero.jpg",
+    "thumbnail": "/work/alkoupon-thumb.jpg",
+    "overview": "Redesigned the core e-commerce coupon aggregation platform to simplify the user journey and integrate AI-driven personalized recommendations.",
+    "process": "Conducted extensive user research to identify friction points in the checkout process. Iterated through rapid wireframing and prototyping, testing with real users. Leveraged AI to build a dynamic recommendation engine.",
+    "solution": "A streamlined, modern web experience that intuitively guides users to the best deals. The AI integration increased user engagement and conversion rates significantly.",
+    "outcomes": ["Increased conversion rate by 25%", "Reduced bounce rate", "Successfully integrated AI recommendation engine"]
+  },
+  {
+    "id": "2",
+    "slug": "fintech-platform",
+    "title": "Fintech Platform",
+    "originalTitle": "NDA — financial operations infrastructure platform",
+    "type": "Web / Fintech / Design System",
+    "tags": ["Web", "Fintech", "Design System"],
+    "year": "2024",
+    "heroImage": "",
+    "thumbnail": "",
+    "overview": "Sole designer for a B2B financial operations platform that automates transaction reconciliation for fintech finance teams — replacing two-week manual closes with hours.",
+    "process": "Owned end-to-end UX across 150+ screens — reconciliation, ledger, data source onboarding, dashboard, and admin panel — partnered directly with the founder and PM over a 3–6 month build.",
+    "solution": "A trust-first interface where every match shows its work. Forensic matching views, a 4-step onboarding wizard for messy CSV data, and a dense scannable dashboard built on a reusable card system.",
+    "outcomes": [
+      "Live in production with early-access and pilot customers",
+      "150+ screens across reconciliation, ledger, dashboard, admin, and auth",
+      "Reusable card-shell system that powered downstream surfaces without redesign"
+    ],
+    "lede": "A trust-first interface for finance teams who don't forgive ambiguity. Designed dense, designed dark, designed to show its work.",
+    "caseStudy": {
+      "oneLine": "Designed the platform UI and admin panel for a financial operations infrastructure tool used by fintech finance teams to automate transaction reconciliation, manage ledgers, and close their books in hours instead of weeks.",
+      "atGlance": {
+        "role": "Lead UX/UI Designer — sole designer on the project, responsible for end-to-end design across all surfaces, working directly with the founder and PM.",
+        "scope": [
+          "Platform application — 150+ screens across reconciliation, ledger, data sources, dashboard, account management, audit logs, and auth",
+          "Admin panel",
+          "Design system and component library"
+        ],
+        "timeline": "3–6 months, start to production launch.",
+        "team": "Solo designer paired with a PM. Direct line to the founder for product decisions. Worked alongside the engineering team for handoff and implementation review.",
+        "context": "Early-stage startup environment — founder + small founding team. End-to-end ownership across discovery, system design, and shipping, with no senior designer above me to defer decisions to.",
+        "status": "Live in production with early-access and pilot customers."
+      },
+      "problemSpace": {
+        "narrative": [
+          "Fintech finance teams (controllers, CFOs at modern fintechs) face a structural pain: reconciling thousands of transactions across banks, payment processors like Stripe, and ERP systems is largely manual, error-prone, and slow. A typical month-end close takes around two weeks. When discrepancies surface during audits or due diligence, teams scramble through Excel sheets to find them.",
+          "The product's bet: replace manual reconciliation with an automated, AI-assisted system that ingests data from any source, matches transactions automatically, and surfaces only the exceptions a human needs to review."
+        ],
+        "sidebarLabel": "Why this is hard from a design perspective",
+        "sidebar": [
+          "The users are technical and intolerant of mistakes — finance professionals don't forgive UI ambiguity. Numbers must be unambiguous; provenance of every value must be obvious.",
+          "The data is dense — every screen has tables with dozens of columns of money, status, source, dates, and matching state.",
+          "Trust is the product — if users don't believe the matches, they won't use the automation. The UI has to show its work.",
+          "The system handles many-to-many relationships — a single bank deposit can correspond to dozens of Stripe payouts. Visualizing those relationships clearly is non-trivial."
+        ]
+      },
+      "heroStories": [
+        {
+          "number": "01",
+          "total": "03",
+          "kicker": "Hero",
+          "title": "Designing the transaction matching UX",
+          "challenge": [
+            "The core job of the platform is matching transactions across data sources. In simple cases, one bank entry matches one Stripe payout. In real life, a single bank deposit might correspond to 30 individual Stripe transactions across multiple days. Users need to see the relationship at a glance, verify it, and either accept the match or break it apart."
+          ],
+          "insight": [
+            "Early in the project, our PM brought back a finding from finance users that reframed the problem for me. The hardest part of their day wasn't finding discrepancies — it was trusting the matches the system suggested. Their existing tools would say \"matched ✓\" with no visible reasoning, and they'd still re-verify everything in Excel anyway. That changed my brief: the matching screen wasn't a confirmation screen; it had to be a forensic view — every match needed to show its work."
+          ],
+          "pullQuote": "Hidden destructive actions kill trust faster than wrong matches do.",
+          "approachLabel": "My approach",
+          "approach": [
+            "Designed a split-pane layout: the source transaction lives in a compact left rail (preserving context), while the right side hosts a full table of the matched counterparts with pagination and filters. Both sides visible simultaneously, by design — so the user can compare without clicking back and forth.",
+            "Built a tabbed system (5 tabs) so the same transaction can be viewed across different lenses — match details, related transactions, transaction logs, raw data — without leaving the page. The \"raw data\" and \"transaction logs\" tabs were specifically there to give finance users the audit trail they needed before trusting the match.",
+            "Made the \"Unreconcile\" action a first-class primary button, not buried in a menu. If a user disagrees with an automated match, they need to break it without hunting.",
+            "Designed a right-side drawer (~396px wide) that surfaces additional context — notes, history, related metadata — without taking the user away from the matching view."
+          ],
+          "tradeoffLabel": "The trade-off",
+          "tradeoff": [
+            "Density vs. simplicity. I chose to expose the full table directly on the page rather than hide it behind expandable rows. Finance users prefer scanning over clicking — they're used to spreadsheets where everything is visible at once. The vertical space cost was worth it."
+          ],
+          "outcomeLabel": "Outcome",
+          "outcome": [
+            "The matching flow shipped as a core part of the live product. Through our PM, finance users gave positive feedback on the forensic / audit-trail approach — specifically that being able to see why a match was suggested gave them enough confidence to stop double-checking everything in Excel."
+          ],
+          "image": {
+            "src": "",
+            "alt": "Transaction matching screen, 1-to-many split-pane view",
+            "caption": "Transaction matching — 1-to-many view, split-pane layout",
+            "ratio": "16/10"
+          }
+        },
+        {
+          "number": "02",
+          "total": "03",
+          "kicker": "Hero",
+          "title": "The data source onboarding wizard",
+          "challenge": [
+            "For the platform to reconcile anything, customers must first connect their data sources — banks, ERPs, payment providers, internal databases. Some sources are API-connected (\"Online\"); others are manually uploaded files (\"Offline\"). The Offline flow is harder because the user has to describe their own data to the system: which column is the transaction ID, which is the amount, which is the status, what status values mean what.",
+            "This is configuration work that ML systems usually hide from users. But here, getting it wrong silently means every reconciliation downstream is wrong. The wizard had to surface the complexity without overwhelming finance users."
+          ],
+          "insight": [
+            "This was the screen that took the most iterations to land. Not the visuals — the flow itself. Early versions grouped steps logically (all field mapping together, then all status work, then transforms), but in testing the logical order didn't match how users actually thought about their data.",
+            "The version that shipped — Core Fields → Supporting Fields → Status Value → Review — came after several rounds of restructuring. It's not the most elegant taxonomy on paper, but it matches how a finance user actually opens a CSV and tries to understand it."
+          ],
+          "approachLabel": "The four steps",
+          "approach": [
+            "Core Fields — map the essential columns (transaction ID, amount, date).",
+            "Supporting Fields — optional metadata (description, reference, customer ID).",
+            "Status Value — translate the customer's status terminology into the platform's canonical set.",
+            "Review — full preview of what was mapped, before commit.",
+            "A \"Data transform\" step lives between mapping and review — for cases where the customer's CSV needs splitting, formatting, or coercing before it's usable. Power-user territory, but absolutely necessary.",
+            "A persistent \"ask AI copilot\" button sits on every wizard step so users can get help in context without losing their place.",
+            "Side navigation stays visible throughout the wizard rather than going full-screen modal — finance users often need to jump back to check another part of the system mid-config.",
+            "Free navigation between steps with persistent state — a linear wizard would have been easier to design, but harder to recover from when the user realizes step 1 was wrong at step 3."
+          ],
+          "outcomeLabel": "Outcome",
+          "outcome": [
+            "The wizard shipped as the entry point for every Offline data source connected to the platform, and is currently in use with early-access and pilot customers. The step ordering proved durable enough to ship without further restructuring after launch."
+          ],
+          "image": {
+            "src": "",
+            "alt": "Data source onboarding wizard — Core Fields step",
+            "caption": "Data source onboarding — Core Fields step of the four-step wizard",
+            "ratio": "16/10"
+          }
+        },
+        {
+          "number": "03",
+          "total": "03",
+          "kicker": "Hero",
+          "title": "The dashboard — making dense data scannable",
+          "challenge": [
+            "The dashboard is the first surface a finance lead sees every morning. It needs to answer one question fast: what needs my attention today? But the underlying data is huge — reconciliation status across all sources, account activity, data source health, and exceptions queues."
+          ],
+          "insight": [
+            "My first version leaned cleaner — fewer cards, more whitespace, one or two key metrics surfaced at a time. The founder pushed back: finance users wouldn't open a separate page to find each number. They wanted everything on the front page, simultaneously, scannable in one glance. Density wasn't a problem to solve — it was the requirement.",
+            "That reframing forced a redesign. Instead of asking what's the most important number, I had to ask how do I make six things equally legible without any one drowning the others. The answer was strict componentization: every card uses the same shell, header, and chart styling. The eye learns the rhythm in two seconds and can then scan content rather than navigate layout."
+          ],
+          "pullQuote": "Density wasn't a problem to solve — it was the requirement.",
+          "approachLabel": "My approach",
+          "approach": [
+            "6-card grid layout — three donut charts (reconciliation, accounts, data source overviews) up top, two data tables below, and an accounts activity panel.",
+            "Donut charts deliberately, not bar/line — the user's mental model here is proportion of completion on a single day, not trend over time.",
+            "\"Last update\" timestamp + reload control in the header — finance users need to know whether they're looking at fresh data before making decisions. Non-negotiable in financial UI.",
+            "Skeleton loader states in two variants, so the perception of speed matches the platform's hours-not-weeks promise."
+          ],
+          "tradeoffLabel": "The system-level decision",
+          "tradeoff": [
+            "Every card uses the same component shell — same border, same radius, same header pattern with title plus dropdown filter. This let me build out the dashboard quickly and gave finance users a predictable scanning rhythm. The founder's density requirement only works if the user's eye knows where to land."
+          ],
+          "outcomeLabel": "Outcome",
+          "outcome": [
+            "The dashboard shipped as the platform's home screen and is what every pilot customer sees on login. The componentization paid off downstream — the same card-shell pattern was reused across the ledger overview, account overview, and reconciliation result screens, which let me build out the rest of the platform faster without redesigning each surface from scratch."
+          ],
+          "image": {
+            "src": "",
+            "alt": "Dashboard with six-card grid, donut charts, and data tables",
+            "caption": "Dashboard — six-card grid, three donut charts up top, data tables below",
+            "ratio": "16/10"
+          }
+        }
+      ],
+      "designSystemLabel": "What I built underneath",
+      "designSystem": [
+        {
+          "title": "Component library",
+          "description": "Six-plus data-source category icons (bank, ERP, payment provider, manual transaction, generic, database), tabs, dropdowns, tooltips, multi-padding toasts, badges, and a 7-variant filter system."
+        },
+        {
+          "title": "Table system",
+          "description": "Custom table cells and headers as instances, used consistently across reconciliation, ledger, account, and audit log screens."
+        },
+        {
+          "title": "Auth flows",
+          "description": "Login, forgot password, check email, reset password, account verify — full set, designed to match the dense aesthetic of the app rather than feeling like a marketing landing page."
+        },
+        {
+          "title": "Documentation pattern",
+          "description": "A repeating pattern for in-app help and contextual documentation, used in 7+ places. Standardizing this meant the team could add inline help to new surfaces without redesigning the pattern each time."
+        }
+      ],
+      "reflectionLabel": "What I'd do differently",
+      "reflection": [
+        {
+          "title": "Tighter information architecture in matching",
+          "body": "The 5+ Transaction Details frame variants suggest the IA could be tighter. With more time, I'd consolidate the matching variants (1-to-1, 1-to-many, related transactions, logs) into a single canonical screen with tab/state changes, rather than five separate frames."
+        },
+        {
+          "title": "More direct user research, less PM-relay",
+          "body": "Most of my user insight on this project came through our PM. I trust how he relayed it, but for a product where trust is the whole game, talking directly to finance users one or two times during the project would have shortened a few iteration loops — especially on the wizard flow."
+        },
+        {
+          "title": "Settle density debates with prototypes, not discussions",
+          "body": "The dashboard density debate could have been settled with a clickable prototype on day one, not two rounds of redesign discussion with the founder. A density-comparison prototype aligns stakeholders faster than slide-deck arguments."
+        }
+      ]
+    }
+  },
+  {
+    "id": "3",
+    "slug": "auc-student-app",
+    "title": "AUC Student App",
+    "originalTitle": "My AUC",
+    "type": "Mobile / Education",
+    "tags": ["Mobile", "UX Design", "Education"],
+    "year": "2022",
+    "heroImage": "/work/auc-hero.jpg",
+    "thumbnail": "/work/auc-thumb.jpg",
+    "overview": "Designed the official mobile app for The American University in Cairo — a unified platform serving students, faculty, staff, and alumni with daily campus services and communication tools.",
+    "process": "Mapped the full stakeholder journey across four distinct user groups. Conducted interviews to uncover friction in accessing academic and campus services. Focused on creating a single intuitive entry point to replace fragmented portals and manual processes.",
+    "solution": "A clean, personalized mobile experience available on iOS and Android. Core features include academic grades, library services, bus tickets, a to-do module, and calendar integration — all designed to keep users closer to campus life every day.",
+    "outcomes": ["10K+ downloads on Google Play", "Serving students, faculty, staff, and alumni", "Reduced dependency on fragmented web portals"]
+  },
+  {
+    "id": "4",
+    "slug": "grosy-app",
+    "title": "Grosy App",
+    "originalTitle": "Drops",
+    "type": "Mobile / E-commerce",
+    "tags": ["Mobile", "E-commerce", "UI/UX"],
+    "year": "2022",
+    "heroImage": "/work/grosy-hero.jpg",
+    "thumbnail": "/work/grosy-thumb.jpg",
+    "overview": "Designed the mobile shopping experience for a large-scale online hypermarket — 90,000+ products across 20+ categories, serving thousands of daily shoppers.",
+    "process": "Tackled the core challenge of making a massive product catalog feel simple and fast. Designed intuitive category navigation, a streamlined checkout flow, and bilingual UI (English and Arabic). Iterated extensively on the search and filtering experience.",
+    "solution": "A fast, visually clean grocery app with express delivery, multiple payment options (Apple Pay, cash, credit cards, digital wallet), and a personalized home feed. The app earned a 4.3 App Store rating with over 1,300 reviews.",
+    "outcomes": ["4.3 App Store rating with 1,300+ reviews", "Bilingual UI supporting English and Arabic", "90,000+ products across 20+ categories"]
+  },
+  {
+    "id": "5",
+    "slug": "techfuz",
+    "title": "Techfuz",
+    "originalTitle": "RiseUp Summit",
+    "type": "Mobile / Event",
+    "tags": ["Mobile", "Brand", "Interaction"],
+    "year": "2022",
+    "heroImage": "/work/techfuz-hero.jpg",
+    "thumbnail": "/work/techfuz-thumb.jpg",
+    "overview": "Designed the official mobile companion app for RiseUp Summit — MENA's largest entrepreneurship and innovation event, bringing together 400+ speakers, 300+ startups, and 100+ investors in Cairo.",
+    "process": "Mapped the attendee journey from pre-event discovery to real-time navigation on the day. Designed an interactive agenda browser, speaker profiles, startup directory, and smart networking features to help thousands of attendees get the most out of the summit.",
+    "solution": "A vibrant, high-energy event app that served as the digital backbone of the summit. Attendees could browse sessions, connect with speakers and founders, and navigate the venue — all in one place.",
+    "outcomes": ["Thousands of active users during the event", "Full agenda browsing and networking features", "Zero downtime across multi-day event"]
+  }
+]
