@@ -16,7 +16,7 @@ export function PullQuote({ quote }: PullQuoteProps) {
       className="relative my-10 pl-6 md:pl-8"
     >
       <span aria-hidden="true" className="absolute left-0 top-1 bottom-1 w-[2px] bg-accent" />
-      <p className="text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.02em] text-fg-primary font-syne font-bold">
+      <p className="text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.02em] text-fg-primary font-display font-bold">
         &ldquo;{quote}&rdquo;
       </p>
     </motion.blockquote>

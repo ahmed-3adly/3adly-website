@@ -49,7 +49,7 @@ export function HeroStory({ story }: HeroStoryProps) {
         </span>
       </div>
 
-      <h3 className="text-[clamp(2rem,4.5vw,3rem)] leading-[1.05] tracking-[-0.02em] text-fg-primary font-syne font-bold">
+      <h3 className="text-[clamp(2rem,4.5vw,3rem)] leading-[1.05] tracking-[-0.02em] text-fg-primary font-display font-bold">
         {story.title}
       </h3>
 

@@ -14,7 +14,7 @@ const FADE_UP = {
 
 export function Contact() {
   return (
-    <section id="contact" className="relative py-40 px-6 overflow-hidden">
+    <section id="contact" aria-labelledby="contact-heading" className="relative py-40 px-6 overflow-hidden">
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         <motion.p
           custom={0}
@@ -28,12 +28,13 @@ export function Contact() {
         </motion.p>
 
         <motion.h2
+          id="contact-heading"
           custom={0.1}
           variants={FADE_UP}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-[clamp(2.5rem,7vw,6rem)] font-black tracking-tighter leading-none text-fg-primary mb-4 font-syne"
+          className="text-[clamp(2.5rem,7vw,6rem)] font-black tracking-tighter leading-none text-fg-primary mb-4 font-display"
         >
           Available
           <br />
@@ -58,7 +59,7 @@ export function Contact() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           href="mailto:hello@ahmedadly.com"
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-fg-primary text-base bg-accent hover:bg-accent-strong transition-colors duration-200 mb-12 font-syne"
+          className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-fg-primary text-base bg-accent hover:bg-accent-strong transition-colors duration-200 mb-12 font-mono"
         >
           <Mail size={18} aria-hidden="true" />
           hello@ahmedadly.com

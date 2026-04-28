@@ -21,7 +21,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     >
       <Link
         href={`/work/${project.slug}`}
-        className="group relative block w-full overflow-hidden rounded-2xl bg-bg-surface border border-border-hairline transition-colors duration-300 hover:border-border-strong"
+        className="group relative block w-full overflow-hidden rounded-md bg-bg-surface border border-border-hairline transition-colors duration-300 hover:border-border-strong"
       >
         <div className="relative aspect-[4/3] w-full bg-bg-surface overflow-hidden">
           {project.thumbnail ? (
@@ -50,7 +50,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <div className="p-6 border-t border-border-hairline relative z-30">
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">
-              <h3 className="text-2xl font-bold text-fg-primary group-hover:text-accent transition-colors font-syne">
+              <h3 className="text-2xl font-bold text-fg-primary group-hover:text-accent transition-colors font-display">
                 {project.title}
               </h3>
               <p className="text-fg-secondary mt-1 text-sm font-mono">{project.type}</p>

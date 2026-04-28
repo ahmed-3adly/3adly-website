@@ -29,7 +29,15 @@ export default function RootLayout({
           href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700,800&display=swap"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-sm focus:bg-accent focus:text-fg-primary focus:font-mono focus:text-sm"
+        >
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
