@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Fragment_Mono, Licorice } from "next/font/google";
 import "./globals.css";
 
-const geistMono = Geist_Mono({
+const fragmentMono = Fragment_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "400",
   variable: "--font-mono-stack",
+  display: "swap",
+});
+
+const licorice = Licorice({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-script-stack",
   display: "swap",
 });
 
@@ -21,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${geistMono.variable}`}>
+    <html lang="en" className={`dark ${fragmentMono.variable} ${licorice.variable}`}>
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link
