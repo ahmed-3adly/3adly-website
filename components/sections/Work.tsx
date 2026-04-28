@@ -18,7 +18,7 @@ const FADE_UP = {
 
 export function Work() {
   return (
-    <section id="work" className="relative py-32 px-6">
+    <section id="work" aria-labelledby="work-heading" className="relative py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.p
           custom={0}
@@ -33,12 +33,13 @@ export function Work() {
 
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
           <motion.h2
+            id="work-heading"
             custom={0.1}
             variants={FADE_UP}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="text-[clamp(2rem,5vw,3.5rem)] font-black tracking-tight text-fg-primary leading-none font-syne"
+            className="text-[clamp(2rem,5vw,3.5rem)] font-black tracking-tight text-fg-primary leading-none font-display"
           >
             Things I&apos;ve
             <br />

@@ -17,7 +17,7 @@ const FADE_UP = {
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-32 px-6">
+    <section id="experience" aria-labelledby="experience-heading" className="relative py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.p
           custom={0}
@@ -31,12 +31,13 @@ export function Experience() {
         </motion.p>
 
         <motion.h2
+          id="experience-heading"
           custom={0.1}
           variants={FADE_UP}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-[clamp(2rem,5vw,3.5rem)] font-black tracking-tight text-fg-primary leading-none mb-16 font-syne"
+          className="text-[clamp(2rem,5vw,3.5rem)] font-black tracking-tight text-fg-primary leading-none mb-16 font-display"
         >
           Where I&apos;ve worked
         </motion.h2>
@@ -69,10 +70,10 @@ export function Experience() {
                   aria-hidden="true"
                 />
 
-                <div className="border border-border-hairline rounded-xl p-6 transition-colors duration-300 group-hover:border-border-strong">
+                <div className="border border-border-hairline rounded-md p-6 transition-colors duration-300 group-hover:border-border-strong">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div>
-                      <h3 className="text-lg font-bold text-fg-primary font-syne">
+                      <h3 className="text-lg font-bold text-fg-primary font-display">
                         {entry.role}
                       </h3>
                       <p className="text-sm font-medium mt-0.5 text-accent font-mono">

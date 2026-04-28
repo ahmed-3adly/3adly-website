@@ -57,7 +57,7 @@ function NextProject({ next }: { next: Project }) {
         className="group flex items-center justify-between p-6 border border-border-hairline hover:border-border-strong transition-colors duration-200"
       >
         <div>
-          <h3 className="text-2xl font-bold text-fg-primary group-hover:text-accent transition-colors font-syne">
+          <h3 className="text-2xl font-bold text-fg-primary group-hover:text-accent transition-colors font-display">
             {next.title}
           </h3>
           <p className="text-fg-muted text-sm mt-1 font-mono">{next.type}</p>

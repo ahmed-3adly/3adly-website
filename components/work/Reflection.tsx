@@ -26,9 +26,9 @@ export function Reflection({ items }: ReflectionProps) {
             {String(i + 1).padStart(2, "0")}
           </span>
           <div className="space-y-3">
-            <h4 className="text-2xl md:text-[28px] leading-snug text-fg-primary font-syne font-bold italic">
+            <h3 className="text-2xl md:text-[28px] leading-snug text-fg-primary font-display font-bold italic">
               {item.title}
-            </h4>
+            </h3>
             <p className="text-fg-secondary text-[1.0625rem] leading-relaxed max-w-[60ch] font-mono">
               {item.body}
             </p>

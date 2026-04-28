@@ -36,7 +36,7 @@ const FADE_UP = {
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-32 px-6">
+    <section id="skills" aria-labelledby="skills-heading" className="relative py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.p
           custom={0}
@@ -50,12 +50,13 @@ export function Skills() {
         </motion.p>
 
         <motion.h2
+          id="skills-heading"
           custom={0.1}
           variants={FADE_UP}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-[clamp(2rem,5vw,3.5rem)] font-black tracking-tight text-fg-primary leading-none mb-16 font-syne"
+          className="text-[clamp(2rem,5vw,3.5rem)] font-black tracking-tight text-fg-primary leading-none mb-16 font-display"
         >
           What I work with
         </motion.h2>
@@ -69,7 +70,7 @@ export function Skills() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              className="text-[11px] font-semibold text-fg-muted tracking-[0.18em] uppercase mb-6 font-mono"
+              className="text-[11px] font-semibold text-fg-secondary tracking-[0.18em] uppercase mb-6 font-mono"
             >
               Design
             </motion.h3>
@@ -88,7 +89,7 @@ export function Skills() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              className="text-[11px] font-semibold text-fg-muted tracking-[0.18em] uppercase mb-6 font-mono"
+              className="text-[11px] font-semibold text-fg-secondary tracking-[0.18em] uppercase mb-6 font-mono"
             >
               Build
             </motion.h3>

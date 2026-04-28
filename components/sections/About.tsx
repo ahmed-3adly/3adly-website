@@ -32,7 +32,7 @@ function StatCard({ value, label, index }: { value: string; label: string; index
       animate={inView ? "visible" : "hidden"}
       className="flex flex-col items-center md:items-start gap-1"
     >
-      <span className="text-5xl font-black tracking-tight text-fg-primary tabular-nums font-syne">
+      <span className="text-5xl font-black tracking-tight text-fg-primary tabular-nums font-display">
         {value}
       </span>
       <span className="text-[11px] text-fg-muted uppercase tracking-[0.18em] font-mono">
@@ -47,7 +47,7 @@ export function About() {
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-32 px-6">
+    <section id="about" ref={sectionRef} aria-labelledby="about-heading" className="relative py-32 px-6">
       <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         {/* Left — avatar + stats */}
         <div className="flex flex-col items-center md:items-start gap-12">
@@ -55,9 +55,9 @@ export function About() {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative w-56 h-56 rounded-3xl overflow-hidden border border-border-hairline bg-bg-surface flex items-center justify-center"
+            className="relative w-56 h-56 rounded-md overflow-hidden border border-border-hairline bg-bg-surface flex items-center justify-center"
           >
-            <span className="text-7xl font-black tracking-tighter select-none text-fg-primary font-syne">
+            <span className="text-7xl font-black tracking-tighter select-none text-fg-primary font-display">
               AA
             </span>
           </motion.div>
@@ -82,11 +82,12 @@ export function About() {
           </motion.p>
 
           <motion.h2
+            id="about-heading"
             custom={1}
             variants={FADE_UP}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="text-4xl md:text-5xl font-black tracking-tight leading-tight text-fg-primary font-syne"
+            className="text-4xl md:text-5xl font-black tracking-tight leading-tight text-fg-primary font-display"
           >
             I design products that people actually use.
           </motion.h2>

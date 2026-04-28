@@ -26,9 +26,9 @@ export function DesignSystemGrid({ items }: DesignSystemGridProps) {
             >
               {String(i + 1).padStart(2, "0")}
             </span>
-            <h4 className="text-fg-primary font-bold tracking-tight text-lg font-syne">
+            <h3 className="text-fg-primary font-bold tracking-tight text-lg font-display">
               {item.title}
-            </h4>
+            </h3>
           </div>
           <p className="text-fg-secondary text-sm leading-relaxed font-mono">
             {item.description}

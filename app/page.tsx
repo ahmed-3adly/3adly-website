@@ -9,7 +9,7 @@ import { DotNav } from "@/components/ui/DotNav";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-bg-canvas">
+    <main id="main-content" tabIndex={-1} className="min-h-screen bg-bg-canvas focus:outline-none">
       <FloatingNav />
       <DotNav />
       <Hero />

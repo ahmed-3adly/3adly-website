@@ -40,13 +40,17 @@ export function DotNav() {
   };
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col space-y-4">
+    <nav
+      aria-label="Section navigation"
+      className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col space-y-4"
+    >
       {sections.map((section) => (
         <button
           key={section.id}
           onClick={() => scrollTo(section.id)}
           className="group relative flex items-center justify-center p-2"
           aria-label={`Scroll to ${section.label}`}
+          aria-current={activeSection === section.id ? "location" : undefined}
         >
           {/* Label tooltip on hover */}
           <span className="absolute right-8 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-bg-surface px-2 py-1 text-xs text-fg-secondary pointer-events-none border border-border-hairline font-mono tracking-wider">
@@ -62,6 +66,6 @@ export function DotNav() {
           />
         </button>
       ))}
-    </div>
+    </nav>
   );
 }

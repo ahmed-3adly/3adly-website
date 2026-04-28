@@ -62,6 +62,7 @@ export function Hero() {
     <section
       id="hero"
       ref={sectionRef}
+      aria-labelledby="hero-heading"
       className="relative min-h-screen flex flex-col overflow-hidden"
     >
       {/* Subtle grid background */}
@@ -70,8 +71,8 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: [
-            "linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px)",
-            "linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px)",
+            "linear-gradient(var(--color-grid-line) 1px, transparent 1px)",
+            "linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px)",
           ].join(", "),
           backgroundSize: "64px 64px",
         }}
@@ -101,11 +102,12 @@ export function Hero() {
           {/* AHMED — solid */}
           <div className="overflow-hidden">
             <motion.h1
+              id="hero-heading"
               custom={0}
               variants={RISE}
               initial="hidden"
               animate="visible"
-              className="text-[clamp(4.5rem,14vw,13rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase text-fg-primary font-syne"
+              className="text-[clamp(4.5rem,14vw,13rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase text-fg-primary font-display"
             >
               Ahmed
             </motion.h1>
@@ -138,9 +140,9 @@ export function Hero() {
               initial="hidden"
               animate="visible"
               aria-hidden="true"
-              className="text-[clamp(4.5rem,14vw,13rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase select-none font-syne"
+              className="text-[clamp(4.5rem,14vw,13rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase select-none font-display"
               style={{
-                WebkitTextStroke: "1.5px rgba(255,255,255,0.16)",
+                WebkitTextStroke: "1.5px var(--color-border-strong)",
                 color: "transparent",
               }}
             >
@@ -181,14 +183,14 @@ export function Hero() {
           >
             <button
               onClick={scrollToWork}
-              className="px-6 py-2.5 text-[0.82rem] font-semibold text-fg-primary rounded-full bg-accent hover:bg-accent-strong transition-colors duration-200 font-syne"
+              className="px-6 py-2.5 text-[0.82rem] font-semibold text-fg-primary rounded-full bg-accent hover:bg-accent-strong transition-colors duration-200 font-mono"
               style={{ letterSpacing: "0.02em" }}
             >
               View Work
             </button>
             <button
               onClick={scrollToContact}
-              className="px-6 py-2.5 text-[0.82rem] font-semibold text-fg-secondary rounded-full border border-border-hairline hover:text-fg-primary hover:border-border-strong transition-colors duration-200 font-syne"
+              className="px-6 py-2.5 text-[0.82rem] font-semibold text-fg-secondary rounded-full border border-border-hairline hover:text-fg-primary hover:border-border-strong transition-colors duration-200 font-mono"
               style={{ letterSpacing: "0.02em" }}
             >
               Get in Touch

@@ -50,7 +50,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
           variants={FADE_UP}
           initial="hidden"
           animate="visible"
-          className="text-[clamp(2.5rem,7vw,5.5rem)] font-black tracking-tighter leading-none text-fg-primary mb-4 font-syne"
+          className="text-[clamp(2.5rem,7vw,5.5rem)] font-black tracking-tighter leading-none text-fg-primary mb-4 font-display"
         >
           {project.title}
         </motion.h1>

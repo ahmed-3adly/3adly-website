@@ -3,7 +3,7 @@
 > Source of truth for visual language, tokens, and component patterns across the 3adly portfolio site. If a decision isn't here, it isn't real yet.
 
 **Status:** v1 — dark-first, light mode planned (not built).
-**Last updated:** 2026-04-27
+**Last updated:** 2026-04-28 (normalize pass — token-name truth, missing tokens added)
 
 ---
 
@@ -143,12 +143,16 @@ When light mode lands, only the values change — names stay. Sketch:
 
 | Family | Role | Weights loaded |
 |---|---|---|
-| **Syne** | Display only — hero, section openers, project titles, big numbers. | 700, 800 |
+| **General Sans** | Display only — hero, section openers, project titles, big numbers. | 500, 600, 700, 800 |
 | **Geist Mono** | Everything else — body, UI, labels, captions, eyebrows, code, metadata. | 400, 500, 600 |
 
 Two-family system, mono-forward. Body is monospaced — this is the engineering signal of the portfolio. Reading speed is slightly slower; the trade is intentional.
 
+Display is General Sans (Fontshare). It's a humanist sans with crisp geometric counters — neutral enough to share a viewport with mono body without fighting it, distinctive enough to carry headline weight on its own.
+
 Do not introduce a third face. Do not add a proportional sans for body.
+
+The Tailwind utility for display is **`font-display`** (maps to `--font-display`). The utility for mono is **`font-mono`** (maps to `--font-mono`). UI labels and buttons use `font-mono` — only headlines, project titles, and other display roles use `font-display`.
 
 ### 3.2 Scale
 
@@ -189,10 +193,10 @@ If a paragraph runs longer than ~5 lines at these widths, break it. Mono punishe
 ### 3.5 Headline rules
 
 - Headlines never end with a period.
-- Sentence case for `display-*` and `headline` (Syne reads better in mixed case).
+- Sentence case for `display-*` and `headline` (General Sans reads better in mixed case).
 - Title case is forbidden anywhere.
 - `eyebrow` is uppercase (the only uppercase role).
-- Numerals in headlines use Syne's tabular figures; numerals in body use Geist Mono's (which are tabular by default — alignment in tables is automatic, no extra config).
+- Numerals in headlines use General Sans's lining figures; numerals in body use Geist Mono's tabular figures (tabular by default — alignment in tables is automatic, no extra config).
 
 ---
 
@@ -606,7 +610,7 @@ Body is mono. This shapes the writing:
 
 **Anatomy:**
 - Numbered learnings: `01` (italic title) — paragraph.
-- Italic title in Syne 600.
+- Italic title in General Sans 600.
 - Paragraph in `body-lg`.
 
 **Rules:**
@@ -695,55 +699,46 @@ Body is mono. This shapes the writing:
 
 ### 13.1 Tailwind 4 `@theme` mapping
 
-`app/globals.css` is the source. Tokens map into Tailwind 4's `@theme` block so utility classes pick them up automatically.
+`app/globals.css` is the source. Tokens map into Tailwind 4's `@theme` block so utility classes pick them up automatically. Type scale is exposed as `@layer components` classes alongside.
 
 ```css
 @import "tailwindcss";
 
 @theme {
-  /* surfaces */
-  --color-bg-canvas: #0a0a0f;
-  --color-bg-surface: #14141c;
-  --color-bg-surface-elevated: #1d1d28;
+  /* fonts */
+  --font-display: "General Sans", system-ui, sans-serif;
+  --font-mono: var(--font-mono-stack), ui-monospace, Menlo, monospace;
 
-  /* foreground */
-  --color-fg-primary: #f5f5f7;
-  --color-fg-secondary: #a8a8b3;
-  --color-fg-muted: #6e6e7a;
+  /* surfaces, foreground, borders, accent, status — see globals.css for values */
 
-  /* borders */
-  --color-border-hairline: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(255, 255, 255, 0.18);
+  /* decorative (used sparingly) */
+  --color-grid-line: rgba(255, 255, 255, 0.028); /* hero grid pattern */
 
-  /* accent */
-  --color-accent: #5b6cff;
-  --color-accent-muted: rgba(91, 108, 255, 0.16);
-  --color-accent-strong: #3d52ff;
-
-  /* status */
-  --color-status-success: #4ade80;
-  --color-status-warning: #fbbf24;
-  --color-status-danger: #f87171;
-
-  /* spacing — Tailwind already has these; only add custom */
-  /* radii */
+  /* radii — full scale */
+  --radius-none: 0;
   --radius-xs: 2px;
-  /* shadows */
-  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--color-border-hairline);
-  --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--color-border-hairline);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-full: 9999px;
 
-  /* motion */
-  --duration-fast: 120ms;
-  --duration-base: 240ms;
-  --duration-slow: 480ms;
-  --duration-deliberate: 720ms;
-  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
-  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* shadows, motion durations + eases — see globals.css */
+}
+
+/* focus + selection — :root tokens, not @theme */
+:root {
+  --focus-ring: var(--color-accent);
+  --selection-bg: var(--color-accent-muted);
+  --selection-fg: var(--color-fg-primary);
+}
+
+/* type scale (§3.2) as @layer components — encodes family + size + leading + tracking + weight */
+@layer components {
+  .display-xl { font-family: var(--font-display); font-size: 6rem; line-height: 0.95; ... }
+  /* …display-lg, display-md, headline, title, body-lg, body, body-sm, caption, eyebrow */
 }
 ```
 
-Use utilities: `bg-bg-canvas`, `text-fg-primary`, `border-border-hairline`, etc. Don't use raw hex anywhere outside this file.
+Use utilities: `bg-bg-canvas`, `text-fg-primary`, `border-border-hairline`, `font-display`, `font-mono`, `rounded-md`, etc. Type roles use the named classes: `<h1 class="display-xl">`, `<p class="body-lg">`, `<span class="eyebrow">`. Don't use raw hex anywhere outside `globals.css`.
 
 ### 13.2 Suggested file structure
 
@@ -758,38 +753,56 @@ components/
 design.md               # ← this file
 ```
 
-### 13.3 Migration notes from current state
+### 13.3 Migration notes — completed
 
-The April 27 perf pass already removed most violations. Remaining cleanup to align with this system:
+The April 27 perf pass and the April 28 normalize pass cleared the legacy violations:
 
-- **`CursorGlow.tsx`**: still in repo but deprecated. Either delete or restrict to a single opt-in surface. **Recommendation: delete.** It conflicts with the restraint principle.
-- **Hero gradient text**: re-evaluate. If keeping, use `--accent` only (not the old pink/purple) and only on `display-xl`.
-- **Pink/purple gradient (`#ff3cac`/`#7b2fff`) in `globals.css`**: remove from `@theme`. Replace with `--accent` (Iris).
-- **`@keyframes glow`**: delete. Glow is no longer in the system.
-- **Backdrop-blur**: confirmed removed across nav, project cards, project header, at-glance, tag chips, experience timeline, contact, about. Do not reintroduce.
+- ✅ **`CursorGlow.tsx`**: deleted.
+- ✅ **Hero gradient text**: removed. Hero headline is solid `--fg-primary` with the outline-stroke "ADLY" treatment as the single moment of typographic theatre.
+- ✅ **Pink/purple gradient (`#ff3cac`/`#7b2fff`)**: removed from `@theme`. Iris (`--accent`) is the only chromatic color.
+- ✅ **`@keyframes glow`**: deleted.
+- ✅ **Backdrop-blur**: confirmed absent across nav, project cards, project header, at-glance, tag chips, experience timeline, contact, about. Do not reintroduce.
+- ✅ **Token-name truth (Apr 28)**: `--font-syne` Tailwind utility renamed to `--font-display` (face is General Sans). UI buttons in Hero and Contact moved from display to mono per §3.1. Hardcoded `rgba(255,255,255,…)` in Hero replaced with `--color-grid-line` (decorative grid) and `--color-border-strong` (text-stroke). Card radii (`rounded-2xl`, `rounded-3xl`, `rounded-xl`) snapped to `--radius-md`.
 
 ### 13.4 Font loading
 
-Two faces only: Syne (display) and Geist Mono (everything else). Use `next/font` for Syne (Google) and the `geist` package for Geist Mono. Subset to Latin. Preload Syne 800 (used in `display-xl`) and Geist Mono 400 (default body).
+Two faces only: General Sans (display, via Fontshare CDN) and Geist Mono (everything else, via `next/font`).
 
-```ts
+```tsx
 // app/layout.tsx
-import { Syne } from 'next/font/google';
-import { GeistMono } from 'geist/font/mono';
+import { Geist_Mono } from "next/font/google";
 
-const syne = Syne({
-  subsets: ['latin'],
-  weight: ['700', '800'],
-  variable: '--font-syne',
-  display: 'swap',
-  preload: true,
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono-stack",
+  display: "swap",
 });
 
-// GeistMono is auto-imported with its CSS variable
-// Use className={`${syne.variable} ${GeistMono.variable}`} on <html>
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className={`dark ${geistMono.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700,800&display=swap"
+        />
+      </head>
+      <body className="antialiased">{children}</body>
+    </html>
+  );
+}
 ```
 
-Body uses `var(--font-geist-mono)`. Display uses `var(--font-syne)`. Drop any reference to `GeistSans`.
+In `globals.css`, both are exposed through `@theme` tokens:
+
+```css
+--font-display: "General Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+--font-mono: var(--font-mono-stack), ui-monospace, SFMono-Regular, Menlo, monospace;
+```
+
+Tailwind utilities: `font-display` (headlines) and `font-mono` (body, UI, labels). Drop any reference to `font-syne`, `Syne`, or `GeistSans`.
 
 ### 13.5 Performance
 
@@ -806,9 +819,9 @@ Body uses `var(--font-geist-mono)`. Display uses `var(--font-syne)`. Drop any re
 - [ ] **Light mode values.** Names are stable; values pending. Target: when site has 5+ pages.
 - [ ] **Hero gradient call.** Keep one moment of `--accent` gradient on `display-xl`, or go fully solid? Test both, decide based on conversion.
 - [ ] **CursorGlow.tsx fate.** Recommendation: delete. Awaiting confirmation.
-- [ ] **Font preloading.** Verify Syne 800 + Geist Mono 400 actually preload via `next/font` config. Audit with Lighthouse.
-- [ ] **Mono readability monitoring.** Mono body is opinionated. After 3+ case studies ship, gut-check whether Editorial mode reads well at length. If not, the escape hatch is allowing Geist Sans (only) for `body-lg` in Editorial — but treat this as a last resort.
-- [ ] **Status colors.** Currently defined but unused. Validate before extending the system to admit them.
+- [ ] **Font preloading.** General Sans loads via Fontshare CDN (no preload), Geist Mono via `next/font`. Audit LCP with Lighthouse — if General Sans hurts LCP, self-host the 700/800 weights and `<link rel="preload">` them.
+- [ ] **Mono readability monitoring.** Mono body is opinionated. After 3+ case studies ship, gut-check whether Editorial mode reads well at length. If not, the escape hatch is allowing General Sans (only) for `body-lg` in Editorial — but treat this as a last resort.
+- [ ] **Type scale migration.** §3.2 scale now exists as `@layer components` classes (`.display-xl`, `.body-lg`, etc.) in globals.css. Existing components still hand-roll `text-[clamp(...)]` values. Migrate component-by-component when each section is next touched.
 - [ ] **Print styles.** Not addressed. Add when a case study needs to be printable as a leave-behind.
 
 ---
