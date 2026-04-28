@@ -3,10 +3,11 @@
 @theme {
   /* ── fonts ───────────────────────────────────── */
   /* Display face: General Sans (loaded via Fontshare @import above). */
-  /* Mono face:    Geist Mono (loaded via next/font, sets --font-mono-stack on <html>). */
-  /* The `font-syne` Tailwind utility is kept as the display role name; the underlying face is General Sans. */
+  /* Mono face:    Fragment Mono (loaded via next/font, sets --font-mono-stack on <html>). */
+  /* Script face:  Licorice (loaded via next/font, sets --font-script-stack on <html>). */
   --font-syne: "General Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: var(--font-mono-stack), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-script: var(--font-script-stack), "Snell Roundhand", "Brush Script MT", cursive;
 
   /* ── surfaces ────────────────────────────────── */
   --color-bg-canvas: #0a0a0f;

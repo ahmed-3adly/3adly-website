@@ -1,0 +1,31 @@
+[
+  {
+    "id": "1",
+    "name": "Generative AI for UI UX Design",
+    "issuer": "IBM & SkillUp",
+    "platform": "Coursera",
+    "date": "Dec 2025",
+    "detail": "3-course specialization"
+  },
+  {
+    "id": "2",
+    "name": "AI for Designers",
+    "issuer": "Interaction Design Foundation",
+    "date": "Oct 2025",
+    "distinction": "Distinction · Top 10%"
+  },
+  {
+    "id": "3",
+    "name": "UX Design Process: Empathize, Define, Ideate",
+    "issuer": "Google",
+    "platform": "Coursera",
+    "date": "Aug 2023"
+  },
+  {
+    "id": "4",
+    "name": "Foundations of UX Design",
+    "issuer": "Google",
+    "platform": "Coursera",
+    "date": "Jul 2023"
+  }
+]

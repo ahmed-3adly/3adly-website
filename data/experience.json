@@ -1,30 +1,45 @@
 [
   {
     "id": "1",
-    "role": "Product Designer",
+    "role": "Senior Product Designer",
     "company": "Extreme Solution",
-    "yearRange": "Sep 2018 - Present",
-    "description": "Collaborated directly with leadership to prototype and deliver UI/UX experiences through a lean, iterative design process."
+    "location": "Cairo",
+    "yearRange": "Sep 2018 — Present",
+    "description": "Partner directly with the CEO and product team to ship UI & UX experiences using a lean process: research, design, test, iterate.",
+    "bullets": [
+      "Represent design in project planning sessions, showcases, and bi-weekly sprint reviews — applying design thinking principles end-to-end.",
+      "Lead the integration of generative AI workflows into ideation, rapid prototyping, and usability testing across the product team.",
+      "Deliver design across fintech, media, music streaming, events, and e-commerce verticals."
+    ]
   },
   {
     "id": "2",
     "role": "UX Director",
-    "company": "DotMSR (Digital Publishing)",
-    "yearRange": "Jan 2017 - Jan 2018",
-    "description": "Led the UX team in making strategic design decisions and organizing projects related to core functions and new features."
+    "company": "Dotmsr · Digital Publishing",
+    "location": "Cairo",
+    "yearRange": "Jan 2017 — Jan 2018",
+    "description": "Led UX strategy and direction across the publisher's product surface — planning, organizing, and shipping against roadmap.",
+    "bullets": [
+      "Collaborated with stakeholders on strategic UX decisions for both core platform and new feature launches."
+    ]
   },
   {
     "id": "3",
     "role": "UX Designer",
-    "company": "DotMSR (Digital Publishing)",
-    "yearRange": "Dec 2015 - Jan 2017",
-    "description": "Solved complex design problems by removing constraints and applying broad design thinking."
+    "company": "Dotmsr · Digital Publishing",
+    "location": "Cairo",
+    "yearRange": "Dec 2015 — Jan 2017",
+    "description": "Reframed feature work by removing inherited constraints early in the process — applying them later, after the problem space had been explored properly.",
+    "bullets": [
+      "Shipped reader-facing improvements across the publishing platform."
+    ]
   },
   {
     "id": "4",
-    "role": "UI/UX Designer",
+    "role": "UI / UX Designer",
     "company": "Zmaxmedia Design Studio",
-    "yearRange": "Aug 2007 - Dec 2010",
-    "description": "Produced powerful and easy-to-use user interfaces and attractive user experiences."
+    "location": "Cairo",
+    "yearRange": "Aug 2007 — Dec 2010",
+    "description": "Designed user interfaces and experiences for studio clients — focused on producing interfaces that were powerful, attractive, and easy to use."
   }
 ]
