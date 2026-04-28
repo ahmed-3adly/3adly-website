@@ -77,6 +77,12 @@ export function Experience() {
                       </h3>
                       <p className="text-sm font-medium mt-0.5 text-accent font-mono">
                         {entry.company}
+                        {entry.location && (
+                          <span className="text-fg-muted">
+                            {" · "}
+                            {entry.location}
+                          </span>
+                        )}
                       </p>
                     </div>
                     <span className="text-[11px] font-medium text-fg-muted tracking-[0.18em] uppercase whitespace-nowrap shrink-0 mt-0.5 font-mono tabular-nums">
@@ -86,6 +92,22 @@ export function Experience() {
                   <p className="text-fg-secondary text-sm leading-relaxed font-mono">
                     {entry.description}
                   </p>
+                  {entry.bullets && entry.bullets.length > 0 && (
+                    <ul className="mt-3 space-y-2">
+                      {entry.bullets.map((bullet, j) => (
+                        <li
+                          key={j}
+                          className="relative pl-4 text-fg-secondary text-sm leading-relaxed font-mono"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-fg-muted"
+                          />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </motion.div>
             ))}

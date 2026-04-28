@@ -22,6 +22,20 @@ export interface Experience {
   company: string;
   yearRange: string;
   description: string;
+  location?: string;
+  bullets?: string[];
+}
+
+export interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
+  date: string;
+  platform?: string;
+  detail?: string;
+  distinction?: string;
+  credentialUrl?: string;
+  credentialId?: string;
 }
 
 export interface CaseStudyAtGlance {
