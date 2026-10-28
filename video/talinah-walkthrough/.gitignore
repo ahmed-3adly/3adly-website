@@ -1,0 +1,24 @@
+# Private / personal data: never commit
+inputs
+private/*
+!private/subs.example.json
+raw
+kf
+fake_templates.pkl
+audit_*
+
+# Rebuildable / heavy outputs
+fonts
+lucide
+__pycache__/
+*.mp4
+*.wav
+*.mp3
+*.jpg
+*.log
+*.png
+!icons/*.png
+prev*/
+pv*/
+slist.txt
+final.flag
